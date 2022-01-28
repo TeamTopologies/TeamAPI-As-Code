@@ -1,0 +1,43 @@
+teamapi: 0.0.1
+info: Core information about the team including their focus and fundamental team type
+  name: The name of the team
+  focus: The core focus/goal of the team
+  type: stream-aligned | platform | complicated-subsystem | enabling
+channels: A list of any channels that can be used to contact the team
+- type: The type of the channel i.e. Slack, Teams, Email, Phone etc
+    name: The name of the channel
+searchTerms: Any terms specific to this team that people might use to search for
+- term: The term that is owned by this team
+platform: If this is present, indicates that this team is part of a wider platform
+  $ref: A reference to the team api for the platform team that this team is part of
+services: A list of any software, services or products that is currently owned by the team
+- name: The name of the software owned by this team
+  url: A url to documentation describing the software
+  versioning: Details of the way in which this product is versioned
+work: Details of the type of work the team takes part in
+  services: A list of systems or services that are currently being worked on
+  - name: The name of the work being completed
+    $ref: A reference to the work - respository etc
+  waysOfWorking: A list of the ways in which the team currently works
+  - name: The name of the way of working
+    $ref: A reference to details about the way of working
+  crossTeam: A list of wider cross-team or organizational improvements being worked on by the team
+  - name: The name of the cross team work being completed
+    $ref: A reference to details about the cross-team improvement
+meetings: A list of meetings that the team currently takes part in
+- type: The type of meeting i.e. daily sync, weekly planning etc
+  dayOfWeek: The day of week that the meeting takes place on
+  timeOfDay: The time of day that the meeting takes place on
+  durationMinutes: The duration of the meetings in minutes
+interactions: Team interactions that the team currently take part in
+- teamName: The name of the team
+  mode: enabling | faciliating | collaboration
+  purpose: The purpose of the interaction
+  startDate: The date the interaction started
+  duration: The proposed duration of the interaction
+  $ref: A reference to the team api for the interacting team
+dependencies:
+- teamName: The name of the team
+  $ref: A reference to the team api for the dependent team
+  description: A description of the dependency
+  type: The type of the dependency OK | Slowing | Blocking

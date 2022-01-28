@@ -1,0 +1,51 @@
+teamapi: 0.1.0
+info:
+  name: Example stream A
+  focus: Core focus of the team
+  type: stream-aligned
+channels:
+  - type: slack
+    name: example-stream-a
+searchTerms:
+  - term: Example team search term
+platform:
+  $ref: https://github.com/example.com/example-platform-team/teamapi.yml
+services:
+  - name: Example Service A
+    url: https://anexampleservice.com
+    versioning:
+      type: semantic
+    repository: https://github.com/example.com/example-service-a
+work:
+  services:
+    - name: Improve the example service a
+      $ref: https://github.com/example.com/example-service-a
+  waysOfWorking:
+    - name: Lean
+      $ref: https://example.internal-wiki.com/ways-of-working/lean
+meetings:
+  - purpose: daily sync
+    dayOfWeek: Wednesday
+    timeOfDay: 09:00
+    durationMinutes: 15
+interactions:
+  - team-name: Example Platform Team
+    mode: X-as-a-service
+    purpose: The purpose of the interaction
+    startDate: 01/01/2022
+    expectedDuration: 3
+    expectedDurationUnit: months
+    $ref: https://github.com/example.com/example-platform-team/teamapi.yml
+  - team-name: Automation Test Enabling Team
+    mode: Facilitating
+    purpose: Introduce automation tests into the example service
+    $ref: https://github.com/example.com/automation-test-team/teamapi.yml
+dependencies:
+  - team-name: Example stream b
+    description: We currently rely on example stream b to make changes to component X.
+    $ref: https://github.com/example.com/example-stream-b-team/teamapi.yml
+    type: Blocking
+  - teamName: Example Platform Team
+    description: We use the platform team to provide CI/CD services
+    $ref: https://github.com/example.com/example-platform-team/teamapi.yml
+    type: OK
