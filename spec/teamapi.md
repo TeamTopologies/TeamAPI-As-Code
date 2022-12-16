@@ -278,8 +278,13 @@ Field Name | Type | Description
 ##### Work Object Example
 
 ```yaml
-versioning:
-  type: semantic
+work:
+  services: 
+    - name: Improve the example service a
+      $ref: https://github.com/example.com/example-service-a
+  waysOfWorking: 
+    - name: Lean
+      $ref: https://example.internal-wiki.com/ways-of-working/lean 
 ```
 
 #### <a name="workServiceObject"></a>Work Service Object
